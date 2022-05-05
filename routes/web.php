@@ -21,4 +21,10 @@ Auth::routes([
     'register' => false
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('2fa');
+
+Route::name('2fa.')->prefix('2fa')->middleware('auth')->group( function() {
+    Route::get('/', [App\Http\Controllers\UserCodeController::class, 'index'])->name('index');
+    Route::post('/', [App\Http\Controllers\UserCodeController::class, 'store'])->name('post');
+    Route::get('/reset', [App\Http\Controllers\UserCodeController::class, 'resend'])->name('resend');
+});

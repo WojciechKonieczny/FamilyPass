@@ -23,7 +23,7 @@ class UsersSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Wojtek',
-            'email' => 'wojtek@local',
+            'email' => 'wojciech9929@gmail.com',
             'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'password' => Hash::make('zaq1@WSX'),
         ]);
