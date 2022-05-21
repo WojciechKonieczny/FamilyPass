@@ -232,4 +232,6 @@ return [
 
     ],
 
+    'key' => 'eSgVkYp3s6v9y$B&E)H@McQfTjWmZq4t',
+
 ];

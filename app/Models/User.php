@@ -16,7 +16,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'password'
     ];
 
     protected $hidden = [
@@ -50,5 +50,10 @@ class User extends Authenticatable
             info("Error: ". $e->getMessage());
             dd($e);
         }
+    }
+
+    // kazdy uzytkownik moze miec wiele hasel
+    public function passwords() {
+        return $this->hasMany(Password::class);
     }
 }
